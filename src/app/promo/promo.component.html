@@ -1,0 +1,8 @@
+<div class="container">
+  <div *ngFor="let promo of promos" class="card">
+    <span class="promo">{{promo?.discount}}</span>
+    <img src="{{promo?.picture}}">
+    <h3>Viaja de {{promo?.from}} a {{promo?.to}} </h3>
+    <p>{{promo?.text}}</p>
+  </div>      
+</div>

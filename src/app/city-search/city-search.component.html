@@ -1,16 +1,21 @@
-<div class="box" [class.selected] = "focusElement">
-  <div class="search">
-
-    <label>{{label}}</label>
-    <input #search_box type="text" (focus)="focusElement=true" (keyup)="search($event)" class="input">
-
-  </div>
+<div class="box"
+  [class.selected] = "focusElement">
+  <div 
+  class="search"
+>
+  <label>{{label}}</label>
+  <input 
+      #search_box
+      type="text" 
+      (focus)="focusElement=true"
+      (keyup)="search($event)" 
+      placeholder="Ciudad" 
+      class="input">
 </div>
-
+</div>
 
 <ul class="list" *ngIf="cities?.length">
   <li *ngFor="let city of cities">
-    <h4 (click)="setCity(city)">{{city?.name}}
-      <span>{{city?.code}}</span>
-    </h4></li>
+    <h4 (click)="setCity(city);focusElement=false">{{city?.name}} <span>{{city?.code}}</span></h4>
+  </li>
 </ul>

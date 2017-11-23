@@ -1,0 +1,146 @@
+.times{
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom:1px solid #eee;
+  padding:0.2;
+  width:100%;
+}
+.main_flights{
+  display: flex;
+  flex-wrap: wrap;
+}
+.main_flights .left{
+  width:73%;
+  margin-right: 2%;
+}
+.main_flights .right{
+  width:25%;
+}
+.right .row{
+  display: flex;
+  flex-wrap:wrap;
+  border-bottom:1px solid #eee;
+  padding: 4% 0%;
+}
+.right .row.total{
+  background:#7b4397;
+  color:white;
+}
+.right .row .col{
+  text-align: right;
+  width:49%;
+  padding:0.5;
+}
+.row button{
+  cursor: pointer;
+  margin-bottom: 30px;
+  font-size: 20px;
+  width: 100%;
+  background-color: #1f9ae0;
+  border:none;
+  color:white;
+  text-align: center;
+  padding:5%;  
+}
+.row button:hover{
+  background-color: #6db9e2;
+}
+h3{
+  margin:0px;
+  background: #eee;
+  padding:2%;
+  font-size: 24px;
+}
+.times .time > div.comments{
+  width:100%;
+  font-size: 15px;
+}
+.times .time > div.discount{
+  width:100%;
+  font-size: 13px;
+  color:#7b4397;
+}
+.times .time{
+  display: flex;
+  flex-wrap: wrap;
+}
+.success{
+  padding: 0.5%;;
+  font-size: 17px;
+}
+.success .code{
+  background: #7b4397;
+  color:white;
+  padding:4%;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 2%;
+}
+.price .card{
+  padding: 0% 30%;
+  padding: 11%;
+  cursor: pointer;
+  background: #f4f4f4;
+}
+.price.selected .card{
+  background: #7b4397;
+  color:white;
+}
+.price.selected .card:hover{
+  background: #8635af;
+}
+.price .card:hover{
+  background: #f0f0f0;
+}
+.times .time > div{
+  width:15%;
+  padding:3%;
+  font-size: 20px;
+}
+.times .time .skt{
+  width:50%;
+}
+.timeline{  
+  background-color: #1f9ae0;
+  height: 3px;
+  margin: 10px 10px 0;
+  position: relative;
+  padding: 0% !important;
+}
+.timeline:before{
+  background-color: #1f9ae0;
+  border-radius: 50%;
+  content: '';
+  height: 6px;
+  position: absolute;
+  top: -2px;
+  width: 6px;
+}
+.timeline:after{
+  background-color: #004990;
+  border-radius: 50%;
+  content: '';
+  height: 6px;
+  position: absolute;
+  top: -2px;
+  width: 6px;
+  right:-2px;
+}
+.labels .price{
+  background: #1f9ae0;
+  color:white;
+}
+.labels .price.plus{
+  background: #7b4397;
+}
+.times div{
+  padding:1%;
+}
+.times div.time{
+  width:38%;
+}
+.times div.price{
+  width:28%;
+  font-size: 20px;
+  text-align: center;  
+}

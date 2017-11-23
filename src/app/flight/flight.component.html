@@ -1,3 +1,70 @@
-<p>
-  flight works!
-</p>
+<h2>{{flights?.name}}</h2>
+
+<div class="main_flights">
+  <div class="left">
+      <div *ngFor="let flight of flights?.flights" class="flightcard">
+          <h3>{{flight.date |  date:'fullDate'}}</h3>
+          <div class="times labels">
+              <div class="time"></div>
+              <div class="price">Economica</div>
+              <div class="price plus">Clase Premier</div>
+          </div>
+          <div *ngFor="let schedule of flight.times" class="times">
+            <div class="time">
+              <div>{{schedule.time}}</div>
+              <div class="skt">
+                  <div class="timeline"></div>
+              </div>
+              <div>{{schedule.end_time}}</div>
+              <div class="comments">{{schedule.note}}</div>
+              <div class="discount" *ngIf="schedule.discount">{{schedule.discount}}% de descuento en precio final</div>
+            </div>
+            <div [class.selected] = "selection && schedule.id == selection.id" class="price" (click)="select(schedule, schedule.id, schedule.price)"><div class="card">{{schedule.price}} {{schedule.currency}}</div> </div>
+            <div [class.selected] = "selection && schedule.fid == selection.id" class="price" (click)="select(schedule, schedule.fid, schedule.first_price)"><div class="card">{{schedule.first_price}} {{schedule.currency}}</div> </div>
+          </div>
+        </div>
+  </div>
+
+
+  <div class="right" *ngIf="reservation">
+    <div class="success">
+        Tu reservación fue completada y puedes revisarla nuevamente utilizando el siguiente código:
+        <div class="code">
+          {{reservation.code}}
+        </div>
+    </div>
+    
+  </div>
+  <div class="right" *ngIf="!reservation">
+    <div class="row">
+      <div class="col">Pasajeros </div> 
+      <div class="col">{{passengers}}</div>
+    </div>
+    <div *ngIf="selection">
+        <div class="row">
+            <div class="col">Precio individual </div> 
+            <div class="col">{{selection.price | currency}} {{selection.currency}}</div>
+        </div>
+        <div class="row">
+            <div class="col">Subtotal</div> 
+            <div class="col">{{selection.subtotal | currency}} {{selection.currency}}</div>
+        </div>
+        <div class="row" *ngIf="selection.discount">
+            <div class="col">Descuento</div> 
+            <div class="col">{{selection.discount | currency}} {{selection.currency}}</div>
+        </div>
+        <div class="row">
+            <div class="col">Impuestos</div> 
+            <div class="col">{{selection.taxes | currency}} {{selection.currency}}</div>
+        </div>
+        <div class="row total">
+            <div class="col">Total</div> 
+            <div class="col">{{selection.total | currency}} {{selection.currency}}</div>
+        </div>
+        <div class="row">
+          <button (click)="reserve()">Reservar</button>
+        </div>
+    </div>
+  </div>
+</div>
+

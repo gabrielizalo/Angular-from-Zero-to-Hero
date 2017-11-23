@@ -1,51 +1,52 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from "@angular/router";
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormBuilder, FormGroup,  Validators  } from '@angular/forms';
+import { Router} from '@angular/router';
 
-@Component ( {
-  selector   : 'app-search',
+@Component({
+  selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls  : [ './search.component.css' ]
-} )
+  styleUrls: ['./search.component.css'],
+  encapsulation: ViewEncapsulation.Emulated
+})
 export class SearchComponent implements OnInit {
 
-  searchForm: FormGroup;
+  searchForm : FormGroup;
+  router : Router;
+  constructor( private fb: FormBuilder, private routerCore: Router) {
+    this.createForm();
+    this.router = routerCore;
+   }
 
-  constructor ( private fb: FormBuilder, private routerCore : Router) {
-    this.createForm ();
-    this.router = this.routerCore;
-  }
+   createForm(){
+    this.searchForm = this.fb.group({
+      passengers : [1,Validators.required],
+      from : ['', Validators.required],
+      to : ['', Validators.required]
+    })
+   }
 
-  onSubmit () {
+  onSubmit(){
     let from = this.searchForm.value['from'];
     let to = this.searchForm.value['to'];
     let passengers = this.searchForm.value['passengers'];
+    this.router.navigate([`/flights/${from}/${to}/${passengers}`]);
   }
 
-  selection ( type, $event ) {
-    // console.log ( 'here' );
-    // console.log ( $event );
-    let assign     = {};
-    assign[ type ] = $event.code;
-    this.searchForm.patchValue ( assign );
+  ngOnInit(){
+
   }
 
-  createForm () {
-    this.searchForm = this.fb.group ( {
-      passengers: [ 1, Validators.required ],
-      from      : [ '', Validators.required ],
-      to        : [ '', Validators.required ]
-    } );
-  }
-
-  changePassengers ( step ) {
-    let temp = parseInt ( this.searchForm.value[ 'passengers' ] + step );
-    if ( temp > 0 ) {
-      this.searchForm.patchValue ( { passengers: temp } );
+  change(step){
+    let temp = parseInt(this.searchForm.value['passengers'])+step;
+    if(temp > 0){
+      this.searchForm.patchValue({passengers: temp});
     }
   }
 
-  ngOnInit () {
+  onSelect(type,data){
+    let assign = { };
+    assign[type] = data.code;
+    this.searchForm.patchValue(assign);
   }
 
 }

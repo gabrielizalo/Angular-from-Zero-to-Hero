@@ -1,0 +1,27 @@
+.menu{
+  display: flex;
+  background: linear-gradient(to right, #7b4397 0%,#1f9ae0 59%,#2dabf5 87%);
+  margin-bottom:5%; 
+  padding: 10px;
+  align-items: center;
+}
+.menu h2{
+  color:white;
+  font-size: 20px;
+  border-right: 1px solid white;
+  padding-right: 3%; 
+  margin-right: 3%;
+}
+.menu ul{
+  width:50%;
+  padding: 0px;
+  margin:0px;
+}
+.menu ul li{
+  display: inline;
+}
+.menu ul li a{
+  color:white;
+  margin-left: 3%;
+  text-decoration: none;
+}

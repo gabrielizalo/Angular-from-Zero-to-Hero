@@ -1,28 +1,35 @@
-<form [formGroup]="searchForm" novalidate>
+<h1>Selecciona tu viaje</h1>
+<h4>Ahora contamos contamos con más de 900 destinos</h4>
 
-  <input type="text" formControlName="passengers" disabled>
+<form [formGroup]="searchForm"  (ngSubmit)="onSubmit()" novalidate class="container">
 
-  <input type="text" formControlName="from">
-  <input type="text" formControlName="to">
+  <input type="hidden" formControlName="from">
+  <input type="hidden" formControlName="to">
 
-  <button (click)="changePassengers(1)">+</button>
-  <button (click)="changePassengers(-1)">-</button>
+  <div class="form-group three">
+    
+    <div class="box" [class.selected] = "focusElement">
+      <div class="element">
+          <label>Pasajeros</label>
+          <input type="text" formControlName="passengers" disabled>
+      </div>
+    </div>
 
-  <app-city-search label="Desde" (onSelect)="selection('from',$event)"></app-city-search>
-
-  <app-city-search label="Hasta" (onSelect)="selection('to',$event)"></app-city-search>
-
-  <div class="actions">
-
-    <button [disabled]="searchForm.invalid">Enviar</button>
-
+    <button (click)="change(1)">+</button>
+    <button (click)="change(-1)">-</button>  
   </div>
-
+        
+  <app-city-search class="three" label="De" (onSelect)="onSelect('from',$event)"></app-city-search>
+  <app-city-search class="three" label="A" (onSelect)="onSelect('to',$event)"></app-city-search>
+      
+  <div class="form-button">
+      <button [disabled]="searchForm.invalid" >Buscar vuelos</button>
+  </div>
+  
 </form>
-
-<div>
-
-  <p>Form value: {{searchForm.value | json}}</p>
-  <p>Form invalid: {{searchForm.invalid | json}}</p>
-
+      
+<div class="debugger">
+    <p>Form value: {{ searchForm.value | json }}</p>
+    <p>Form invalid: {{ searchForm.invalid | json }}</p>
 </div>
+      

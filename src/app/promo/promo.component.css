@@ -1,0 +1,29 @@
+.container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card{
+  width:30%;
+  margin: 1% 0.5%;
+  border:1px solid #DDD;
+  padding:1%;
+}
+
+
+.card .promo{
+  font-size:23px;
+  position: absolute;
+  text-align: right;
+  background: rgb(219, 37, 37);
+  padding:1% 2%;
+  color:white;
+  border-right:1px solid #ec4545;
+  border-bottom:1px solid #ec4545;
+}
+.card img{
+  width:100%;
+}
+.card p{
+  font-size:80%;
+}

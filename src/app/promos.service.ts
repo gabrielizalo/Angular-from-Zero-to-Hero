@@ -2,21 +2,18 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
 
 @Injectable()
-export class CitiesService {
+export class PromosService {
 
   constructor(private db: AngularFireDatabase) { 
     
   }
 
-  getCities(start, end): FirebaseListObservable<any>{
-    return this.db.list('/cities',{
+  getPromos(): FirebaseListObservable<any>{
+    return this.db.list('/promos',{
       query : {
         orderByChild: "name",
-        limitToFirst: 10,
-        startAt: start,
-        endAt : end
+        limitToFirst: 40,
       }
     });
   }
-
 }
