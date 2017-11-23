@@ -1,0 +1,64 @@
+.box{
+  width:99%;
+  padding:0.5%;
+  background: #DDDDDD;
+}
+.search{
+  display: block;
+  width: auto;
+  padding:1%;
+  background: white;
+}
+.box.selected{
+  background:  #7b4397;
+}
+.search label{
+  display: block;
+  font-size: 13px;
+  margin-bottom: 5px;
+  color:#777;
+}
+.search .input{
+  width:100%;
+  border:none;
+  background: transparent;
+  font-size: 18px;
+  color:#7b4397;
+  outline: none;
+  margin-top: -24px;
+  padding-top: 29px;
+  text-transform: uppercase;
+}
+.search .input::-webkit-input-placeholder{
+  color:#999;
+}
+.list{
+  width: 30%;
+  margin:0px;
+  padding:0.2%;
+  position: absolute;
+  background:  #7b4397;
+}
+.list li{
+  list-style: none;
+  padding:0;
+  border-bottom:1px solid #eee;
+  background: white;
+}
+.list li h4{
+  cursor: pointer;
+  padding: 1% 2%;
+  font-size: 16px;
+  margin: 0;
+  color:  #7b4397;
+}
+.list li h4:hover{
+  background:  #7b4397;
+  color:white;
+}
+.list li h4 span{
+  color:#999;
+}
+.list li h4:hover span{
+  color:#ddd;
+}

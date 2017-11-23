@@ -1,0 +1,28 @@
+<form [formGroup]="searchForm" novalidate>
+
+  <input type="text" formControlName="passengers" disabled>
+
+  <input type="text" formControlName="from">
+  <input type="text" formControlName="to">
+
+  <button (click)="changePassengers(1)">+</button>
+  <button (click)="changePassengers(-1)">-</button>
+
+  <app-city-search label="Desde" (onSelect)="selection('from',$event)"></app-city-search>
+
+  <app-city-search label="Hasta" (onSelect)="selection('to',$event)"></app-city-search>
+
+  <div class="actions">
+
+    <button [disabled]="searchForm.invalid">Enviar</button>
+
+  </div>
+
+</form>
+
+<div>
+
+  <p>Form value: {{searchForm.value | json}}</p>
+  <p>Form invalid: {{searchForm.invalid | json}}</p>
+
+</div>
